@@ -1,1 +1,1 @@
-web: java -jar target/full-stack-letmeknow.jar
+web: java -jar target/Full-stack-online-course-project.jar
