@@ -222,6 +222,13 @@
        where sub > 0
    </select>
    
+   <select id="findCategoryName" resultType="alz.lesson.domain.CategoryDTO">
+      select name, total
+        from alz_category
+       where main = #{main}
+         and sub = #{sub}
+   </select>
+   
    <select id="findLessonLevel" resultType="alz.lesson.domain.CategoryDTO">
       select id, lesson_level name
         from alz_lesson_level

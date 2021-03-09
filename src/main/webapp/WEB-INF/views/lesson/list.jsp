@@ -8,191 +8,231 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/resources/css/reset.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Open+Sans:wght@300;400;700&display=swap"
-        rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/resources/css/reset.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <style>
-        body * {
-            font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
-        }
-        
-        .lessonHeaderTitle {
-			color: #335492;
-    		font-size: 25px;
-    		font-weight: 500;
-    		padding: 20px;
-    		border-bottom: solid;
-    		width: 95%;
-		}
+<style>
+body * {
+    font-family: 'Ubuntu', sans-serif;
+}
 
-        #lessonList {
-            width: 1000px;
-            margin: 0 auto;
-            padding-top: 180px;
-        }
+.lessonBreadcrumb {
+	font-size: 14px;
+	padding: 20px 20px 40px;
+    width: 1160px;
+}
 
-        h2 {
-            font-size: 30px;
-            font-weight: 500;
-        }
+.lessonHeaderTitle {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 20px;
+	border-bottom: solid 2px;
+    border-color: #A2a2a2;
+    width: 1160px;
+}
 
-        .main_wrap section {
-            padding: 40px 0 0;
-        }
+#lessonList {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 140px;
+}
 
-        .main_wrap section:last-child {
-            padding-bottom: 80px;
-        }
+h2 {
+    font-size: 25px;
+    font-weight: 500;
+}
+.main_wrap {
+    margin: 0 auto;
+    width: 1200px;
+}
+.main_wrap section {
+    padding: 40px 0 0;
+}
 
-        .main_wrap section ul {
-            display: flex;
-            flex-flow: row wrap;
-            margin-top: 30px;
-            margin-left: 30px;
-        }
+.main_wrap section:last-child {
+    padding-bottom: 80px;
+}
 
-        .main_wrap section ul li {
-            width: 200px;
-            margin-left: 15px;
-            margin-right: 15px;
-            margin-bottom: 20px;
-            position: relative;
-        }
+.main_wrap section ul {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 30px;
+    margin-left: 30px;
+}
 
-        .main_wrap section ul li .img {
-            height: 160px;
-            max-height: 160px;
-            width: 200px;
-            max-width: 200px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .main_wrap section ul li .img img {
-            height: 160px;
-            width: 200px;
-        }
+.main_wrap section ul li {
+    width: 200px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
 
-        .main_wrap section ul li h3 {
-            font-size: 18px;
-            text-align: left;
-            margin-top: 10px;
-        }
+.main_wrap section ul li .img {
+    height: 130px;
+    max-height: 130px;
+    width: 200px;
+    max-width: 200px;
+    margin-bottom: 10px;
+    position: relative;
+}
+      
+.main_wrap section ul li .img img {
+    height: 130px;
+    width: 200px;
+}
 
-        .main_wrap section ul li span {
-            border: none;
-            padding: 2px 10px;
-            background-color: #335492;
-            color: #f4f4f4;
-            margin-right: 5px;
-            font-size: 12px;
-        }
-        
-        .main_wrap section ul li a {
-            text-decoration: none;
-            color: black;
-        }
+.main_wrap section ul li h3 {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+}
+.main_wrap section ul li h4 {
+    font-size: 11px;
+    text-align: left;
+    margin-top: 10px;
+}
+.main_wrap section ul li h5 {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+}
 
-        h6 {
-            display: inline;
-        }
-        
-        .main_wrap section ul li .selected {
-        	display: flex;
-        }
-        
-        .main_wrap section ul li .selected a {
-        	color: white;
-        }
-        
-        .likeInfo {
+.main_wrap section ul li span {
+    border: none;
+    padding: 2px 10px;
+    background-color: #335492;
+    color: #f4f4f4;
+    margin-right: 5px;
+    font-size: 12px;
+}
 
-            position:absolute;
-            right: 0%;
-            top: 0%;
-                  width: 100%;
-                  height: 100%;
-                  justify-content:center;
-                  align-items:center;
-            display: none;
-            z-index: 1;
-                  background: rgba(0,0,0,0.7);
+.main_wrap section ul li a {
+    text-decoration: none;
+    color: black;
+}
 
-        }
-        
-        .likeInfo a {color: #fff; display: flex; align-items:center; font-size: 20px; padding: 0 10px;}
-        
-        i {
-        	margin-right: 5px;
-        }
+h6 {
+    display: inline;
+}
 
-        h3 {
-            margin: 10px 0px;
-            height: 70px;
-        }
+.main_wrap section ul li .selected {
+	display: flex;
+}
 
-        h4 {
-            text-decoration: line-through;
-            display: inline;
-        }
+.main_wrap section ul li .selected a {
+	color: white;
+}
+      
+.likeInfo {
+    position:absolute;
+    right: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    justify-content:center;
+    align-items:center;
+    display: none;
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
 
-        h5 {
-            display: inline;
-            color: red;
-        }
+}
+      
+.likeInfo a {
+	color: #fff; 
+	display: flex; 
+	align-items:center; 
+	font-size: 20px; 
+	padding: 0 10px;}
 
-        h1 {
-            margin-top: 10px;
-            font-size: 25px;
-            font-weight: 200px;
-        }
-        
-        .price {
-            text-align: right;
-            margin-bottom: 50px;
-        }
-        
-        .page-footer{
-			right: 0%;
-			bottom: 0%;
-			margin-top: 20px;
-		}
+.likeInfo i {
+	margin-right: 5px;
+}
 
-		.page-footer li{
-			float: left;
-		}
+li h3 {
+    margin: 10px 0px;
+    height: 50px;
+}
 
-		.paginate_button a {
-			text-decoration: none;
-			background-color: #eee;
-			padding: 5px 10px;
-			color: #335492;
-		}
+li h4 {
+    text-decoration: line-through;
+    display: inline;
+    color: #A2A2A2;
+}
 
-		.active a{
-			color: #eee;
-			background-color: #335492;
-		}
-    </style>
+li h5 {
+    display: inline;
+    color: red;
+}
+
+li h1 {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 200px;
+    display: inline;
+}
+      
+.price {
+    text-align: right;
+    margin-bottom: 50px;
+}
+      
+.page-footer{
+	right: 0%;
+	bottom: 0%;
+	margin-top: 20px;
+    height: 80px;
+}
+
+.page-footer li{
+	float: left;
+}
+.pull-right{
+    margin-right: 2em;
+}
+
+.paginate_button a {
+	text-decoration: none;
+	background-color: #eee;
+	padding: 5px 10px;
+	color: #335492;
+}
+
+.active a{
+	color: #eee;
+	background-color: #335492;
+}
+
+footer {
+	background: #335492; 
+	color: #fff; 
+	padding: 30px 15px;
+	font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 	<div id="lessonList">
 		<div class="main_wrap">
-			<c:forEach items="${list}" var="lesson" begin="1" end="1" step="1">
+			<div class="lessonBreadcrumb">
+					<c:out value="${listName.total}" />
+			</div>
+			<div class="lessonHeaderTitle">
+					<c:out value="${listName.name}" />
+			</div>
+			<%-- <c:forEach items="${list}" var="lesson" begin="1" end="1" step="1">
 				<div class="lessonHeaderTitle">
 					<c:out value="${lesson.categoryName}" />
 				</div>
-			</c:forEach>
+			</c:forEach> --%>
 			<!-- 				<div class="lessonSortDiv">
 					<select name="sort" id="lessonListSort">
 		    		<option value="newest">최신순</option>
@@ -227,12 +267,14 @@
                                 <span>${lesson.typeName}</span><span>${lesson.categoryName}</span>
                                 <h3>${lesson.title}</h3>
                                 <div class="price">
-                                	<fmt:formatNumber type="number" var="originPrice" maxFractionDigits="3" value="${lesson.originPrice}" />
-                                    <h4>${originPrice}원</h4>
-                                    <fmt:parseNumber var= "discountRate" integerOnly= "true" value= "${lesson.discountRate }" />
-                                    <h5>${discountRate}%</h5>
+                                	<c:if test= "${lesson.discountRate != 0}">
+	                                	<fmt:formatNumber type="number" var="originPrice" maxFractionDigits="3" value="${lesson.originPrice}" />
+	                                    <h4>CA$${originPrice}</h4>
+	                                    <fmt:parseNumber var= "discountRate" integerOnly= "true" value= "${lesson.discountRate }" />
+	                                    <h5>${discountRate}%</h5>
+									</c:if>
                                     <fmt:formatNumber type="number" var="salePrice" maxFractionDigits="3" value="${lesson.salePrice}" />
-                                    <h1>${salePrice}원</h1>
+                                    <h1>CA$${salePrice}</h1>
                                 </div>
                                 </a>
                         	</li>
@@ -241,31 +283,36 @@
                 </div>
             </section>
         </div>
-			<!-- paging -->
-	
-	<div class="page-footer" id="pagingDiv">
-		<ul class="pagination pull-right">
-			<c:if test="${pageMaker.prev }">
-				<li class="paginate_button previous"><a href="${pageMaker.startPage -1 }">Previous</a></li>
-			</c:if>
-			
-			<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-				<li class="paginate_button ${pageMaker.cri.pageNum == num? 'active':'' }"><a href="${num }">${num }</a></li>
-			</c:forEach>
-			
-			<c:if test="${pageMaker.next }">
-				<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
-			</c:if>
-		</ul>
-	</div>
-
-	<form id='actionForm' action="/lesson/list" method='get'>
-		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-		<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
-		<input type='hidden' name='categoryMain' value='<c:out value="${pageMaker.cri.categoryMain}"/>' />
-		<input type='hidden' name='categorySub' value='<c:out value="${pageMaker.cri.categorySub}"/>' />
-	</form>
+		<!-- paging -->
+		<div class="page-footer" id="pagingDiv">
+			<ul class="pagination pull-right">
+				<c:if test="${pageMaker.prev }">
+					<li class="paginate_button previous"><a href="${pageMaker.startPage -1 }">Previous</a></li>
+				</c:if>
+				
+				<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+					<li class="paginate_button ${pageMaker.cri.pageNum == num? 'active':'' }"><a href="${num }">${num }</a></li>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next }">
+					<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+				</c:if>
+			</ul>
+		</div
+		>
+		
+		<form id='actionForm' action="/lesson/list" method='get'>
+			<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+			<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+			<input type='hidden' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
+			<input type='hidden' name='categoryMain' value='<c:out value="${pageMaker.cri.categoryMain}"/>' />
+			<input type='hidden' name='categorySub' value='<c:out value="${pageMaker.cri.categorySub}"/>' />
+		</form>
+		<footer>
+			<div class="inner">
+				<p class="copy"> Copyright, ⓒ ALZ. All rights reserved.</p>
+			</div>
+		</footer>
 	
 	<script>
 		$(document).ready(function(e){

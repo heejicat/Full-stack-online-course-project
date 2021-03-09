@@ -22,31 +22,54 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 </head>
 <style>
+header .logo {
+	padding-top: 11px;
+	height: 50px;
+}
+
+header .bottom_line nav>ul {
+	margin-bottom: 0;
+}
+
+header .bottom_line .mypage>ul {
+	margin-bottom: 0;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: 500;
+}
 .container {
 	width: 100%;
     max-width: 100%;
-    display: flex;
     margin: 0 auto;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 150px;
 }
 .boardNameDiv {
-    background: beige;
-    writing-mode: vertical-lr;
-    text-align: center;
-    inline-size: 400px;
-    font-size: 70px;
-    padding: 70px;
-    letter-spacing: 10px;
-    font-weight: 500;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: solid 2px;
+    border-color: #A2a2a2;
 }
 .panel-body {
-    padding-left: 50px;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 .note-resizebar {
 	display:none;
 }
+
+label {
+	padding-left: 10px;
+}
+
 .titleDiv {
 	font-size: 20px;
 }
@@ -140,7 +163,7 @@
     background: none;
     padding: 5px;
     font-size : 100%;
-    font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 100;
 }
 .commentDate {
@@ -174,6 +197,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 	background-color: #335492;
 	padding: 6px 12px;
 	border-radius: 5px 5px;
+    width: fit-content;
 }
 </style>
 <body>
@@ -182,7 +206,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 	
 	<div class="container">
 		<div class="boardNameDiv">
-		   <h1 class="page-header">${boardName}</h1>
+		   <h1>${boardName}</h1>
 		</div>
 		
 		<div class="panel-body">
@@ -197,15 +221,15 @@ button.reCommentRegBtn, button#registerCommentBtn {
 			</div>
 			<div class="form-group2 form-group3">
 				<fmt:formatDate  value="${board.writtenAt }"/>
-				<label>조회</label> <c:out value="${board.viewCnt }"/>
+				<label>View</label> <c:out value="${board.viewCnt }"/>
 			</div>
 			<hr>
 			<c:if test="${board.typeId == 4}">
 				<div>
-					<h>수강 클래스 : </h>
+					<h>Course : </h>
 					<strong><p><c:out value="${board.lessonTitle}" /></p></strong> 
 					<br>
-					<lable>강의 만족도</lable>
+					<lable>Course Rate </lable>
 					<p id="lesson_star_rate">
 						<a href="#" id="star1">★</a> 
 						<a href="#" id="star2">★</a> 
@@ -215,7 +239,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 					</p>
 					<input type='hidden' name='lessonReview' value='<c:out value="${board.lessonReview}"/>'>
 
-					<lable>강사 만족도</lable>
+					<lable>Instructor Rate</lable>
 					<p id="teacher_star_rate">
 						<a href="#" id="star1">★</a> 
 						<a href="#" id="star2">★</a> 
@@ -227,25 +251,26 @@ button.reCommentRegBtn, button#registerCommentBtn {
 				</div>
 			</c:if>
 			<div class="form-group">
-				<textarea class="form-control" id='content' rows="10" name='content'
-					readonly="readonly"><c:out value="${board.content }" /></textarea>
+				<textarea class="form-control" id='content' rows="10" name='content' readonly="readonly"><c:out value="${board.content }" /></textarea>
 			</div>
 
 			<div class="form-group2 form-group4">
 				<input type="hidden" id="isLike" value="false"> 
 				<input type="hidden" id="likeCnt" value="${board.likeCnt }" /> 
-				<a class='likeCnt' href='<c:out value="${board.likeCnt }"/>'><span class="redText">♡</span> 좋아요 <c:out value="${board.likeCnt }" /></a> 
-				<a class='commentCnt' href='<c:out value="${board.commentCnt }"/>'>댓글 <c:out value="${board.commentCnt }" /> </a>
+				<a class='likeCnt' href='<c:out value="${board.likeCnt }"/>'>
+					<span class="redText">♡</span> Like <c:out value="${board.likeCnt }" />
+				</a> 
+				<a class='commentCnt' href='<c:out value="${board.commentCnt }"/>'>Comment <c:out value="${board.commentCnt }" /></a>
 			</div>
 
 
 			<div class="form-group4 form-group5">
 				<button data-oper='write' class="btn btn-info" 
-						onclick="location.href='/board/write?typeId=<c:out value="${board.typeId}"/>&id=<c:out value="${board.id}"/>&pid=<c:out value="${board.parentId}"/>&boardOrder=<c:out value="${board.boardOrder}"/>'">답글쓰기</button>
+						onclick="location.href='/board/write?typeId=<c:out value="${board.typeId}"/>&id=<c:out value="${board.id}"/>&pid=<c:out value="${board.parentId}"/>&boardOrder=<c:out value="${board.boardOrder}"/>'">Reply</button>
 				<c:if test="${principal.id eq board.writerId}">
-					<button data-oper='update' class="btn btn-default" onclick="location.href='/board/update?id=<c:out value="${board.id}"/>'">수정</button>
+					<button data-oper='update' class="btn btn-default" onclick="location.href='/board/update?id=<c:out value="${board.id}"/>'">Edit</button>
 				</c:if>
-				<button data-oper='list' class="btn btn-info" onclick="location.href='/board/list?typeId='${board.typeId}">목록</button>
+				<button data-oper='list' class="btn btn-info" onclick="location.href='/board/list?typeId='${board.typeId}">List</button>
 			</div>
 
 			<form id='operForm' action="/board/modify" method="get">
@@ -260,7 +285,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 			<!-- 댓글  -->
 			<input type='hidden' name='replyNickname' id='replyNickname' value='${principal.nickname}'>
 			<div class="panel panel-default">
-				<div class="panel-heading"> 댓글 </div>
+				<div class="panel-heading"> Comment </div>
 	
 				<div class="panel-body2">
 					<ul class="chat">
@@ -273,8 +298,8 @@ button.reCommentRegBtn, button#registerCommentBtn {
 	
 					<!-- 댓글입력 -->
 					<div class="comment">
-						<textarea id="commentContent" name='comment' cols="70" rows="2" placeholder='댓글을 남겨보세요'></textarea>
-						<button id="registerCommentBtn">등록</button>
+						<textarea id="commentContent" name='comment' cols="70" rows="2" placeholder='What are your thought?'></textarea>
+						<button id="registerCommentBtn">Comment</button>
 					</div>
 				</div>
 				<input type="hidden" id="targetUser" name="targetUser" value="<sec:authentication property="principal.nickname"/>" />
@@ -433,7 +458,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 					}
 						str += "		<div class='commentDiv'>";
 					if(list[i].deleted=="Y" && list[i].commentCnt>=1) {
-						str += " 			<p style='margin:auto'>삭제된 댓글입니다.</p>";
+						str += " 			<p style='margin:auto'>Deleted</p>";
 						str += "<hr> ";
 					} else if(list[i].deleted=='N') {
 						str += "			<img class='userIcon' src='../../../../resources/img/마이.png'>";
@@ -442,14 +467,14 @@ button.reCommentRegBtn, button#registerCommentBtn {
 						str += "			<div class='commentDropdown'>";
 						str += "				<button class='commentDropBtn' data-toggle='dropdown'>‥</button>";
 						str += "				<ul class='dropdown-menu'>";
-						str += "					<li><a class='commentEditBtn'>수정</a></li>";
-						str += "					<li><a class='commentDeleteBtn'>삭제</a></li>";
+						str += "					<li><a class='commentEditBtn'>Edit</a></li>";
+						str += "					<li><a class='commentDeleteBtn'>Delete</a></li>";
 						str += "				</ul>";
 						str += "			</div>";
 						}
 						str += "			<pre class='preContent' style='margin:auto;'>"+list[i].content+"</pre>";
 						str += "			<div class='commentDate'>" + moment(list[i].writtenAt).format('YYYY-MM-DD hh:mm');
-						str += "			<a role='button' class='coCommentBtn'>답글쓰기</a></div>";
+						str += "			<a role='button' class='coCommentBtn'>Reply</a></div>";
 						str += "			<input type='hidden' class='commentId' id='commentId"+i+"' value='"+list[i].id+"'/>";
 						str += "			<input type='hidden' class='commentDepth' id='commentDepth"+i+"' value='"+list[i].depth+"'/>";
 						str += "			<input type='hidden' class='commentCnt' id='commentCnt"+i+"' value='"+list[i].commentCnt+"'/>";
@@ -477,7 +502,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 			
 			var commentDepth = $(this).parent().find(".commentDepth").val();
 			if(commentDepth>9) {
-				alert("댓글 차수를 초과하여 더 이상 대댓글을 등록할 수 없습니다!");
+				alert("Can not proceed : Exceeding order of comments");
 				return;
 			}
 			
@@ -487,11 +512,11 @@ button.reCommentRegBtn, button#registerCommentBtn {
 			var textArea = document.createElement("textarea");
 			textArea.setAttribute("id", "replyTextarea");
 			textArea.setAttribute("cols", "30");
-			textArea.setAttribute("placeholder", "댓글을 입력해주세요");
+			textArea.setAttribute("placeholder", "What are your thoughts?");
 			 
 			var reCommentRegBtn = document.createElement("button");
 			reCommentRegBtn.setAttribute("class", "reCommentRegBtn");
-			reCommentRegBtn.innerHTML="등록";
+			reCommentRegBtn.innerHTML="Comment";
 
 			replyDiv.appendChild(textArea);
 			replyDiv.appendChild(reCommentRegBtn);
@@ -582,9 +607,9 @@ button.reCommentRegBtn, button#registerCommentBtn {
 		// 대댓글 등록 버튼 이벤트
 		$(document).on("click","button[class='reCommentRegBtn']", function(e){
 			
-			var commentId = $(this).parent().parent().find(".commentId").val();
-			var commentDepth = $(this).parent().parent().find(".commentDepth").val();
-			var commentCnt = $(this).parent().parent().find(".commentCnt").val();
+			var commentId = $(this).parent().parent().parent().find(".commentId").val();
+			var commentDepth = $(this).parent().parent().parent().find(".commentDepth").val();
+			var commentCnt = $(this).parent().parent().parent().find(".commentCnt").val();
 			
 			var reCommentValue = { 
 					id : commentId,
@@ -647,7 +672,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 			 
 			var reCommentEditBtn = document.createElement("button");
 			reCommentEditBtn.setAttribute("class", "reCommentEditBtn");
-			reCommentEditBtn.innerHTML="수정";
+			reCommentEditBtn.innerHTML="Edit";
 
 			commentEditDiv.appendChild(textAreaEdit);
 			commentEditDiv.appendChild(reCommentEditBtn);
@@ -693,7 +718,7 @@ button.reCommentRegBtn, button#registerCommentBtn {
 				if(response=="ok") {
 					showComment();					
 				} else {
-					alert("삭제 실패!");
+					alert("Failed to delete!");
 				}
 			});
 			
@@ -775,15 +800,15 @@ button.reCommentRegBtn, button#registerCommentBtn {
 		
 		// 댓글 수 갱신 반영
 		function drawCommentCnt(commentCnt){
-			$commentCnt.html("댓글 "+commentCnt);
+			$commentCnt.html("Comment "+commentCnt);
 		}
 		
 		// 좋아요 수 갱신 반영 및 좋아요 여부 반영
 		function drawLikeCnt(likeCnt) {
 			if($isLike.val()=="true") {
-				$likeCnt.html("<span class='redText'>♥</span> 좋아요 "+likeCnt);
+				$likeCnt.html("<span class='redText'>♥</span> Like "+likeCnt);
 			} else {
-			$likeCnt.html("<span class='redText'>♡</span> 좋아요 "+likeCnt);
+			$likeCnt.html("<span class='redText'>♡</span> Like "+likeCnt);
 			}
 		}
 		

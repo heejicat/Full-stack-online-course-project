@@ -215,6 +215,12 @@ public class LessonServiceImpl implements LessonService {
 		return findSubCategory;
 	}
 	
+	// 카테고리 이름
+	public CategoryDTO getCategoryName(CategoryDTO category) {
+		CategoryDTO categoryName = lessonMapper.findCategoryName(category);
+		return categoryName;
+	}
+	
 	// 난이도
 	public List<CategoryDTO> lessonLevel () {
 		List<CategoryDTO> findLessonLevel = lessonMapper.findLessonLevel();

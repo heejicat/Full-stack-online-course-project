@@ -41,10 +41,9 @@ header {
 	height: 65px;
 }
 
-.container {
-	margin-top: 30px;
-	margin-left: 100px;
-	display: inline-block;
+#lessonRead {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .lessonSideDiv {
@@ -66,8 +65,9 @@ header {
 
 .lesson-container {
 	display: flex;
-	width: 100%;
+	width: 1200px;
 	margin: auto;
+    padding-top: 20px;
 }
 
 .lesson-main {
@@ -158,9 +158,9 @@ header {
 }
 
 .detailReadTitleBlue {
-	font-size: 20px;
+	font-size: 26px;
 	color: steelblue;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .lessonText {
@@ -228,7 +228,7 @@ pre {
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
-	font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-weight: 100;
 }
 
@@ -279,21 +279,23 @@ pre {
 
 .redText {
 	color: red;
+	font-size: 14px;
 }
 
 .priceDiv {
 	font-size: 15px;
 	text-align: right;
-	padding: 10px;
+	padding: 30px 20px 10px;
 }
 
 .afterPrice {
-	font-size: 18px;
-	font-weight: 600;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 5px;
 }
 
 .blueTag {
-	padding: 3px;
+	padding: 5px;
 	background: burlywood;
 	color: white;
 	font-size: 13px;
@@ -305,7 +307,7 @@ pre {
 	color: white;
 	padding: 8px;
 	font-size: 14px;
-	width: 80%;
+	width: 70%;
 }
 
 .addCart {
@@ -314,7 +316,7 @@ pre {
 	background: tomato;
 	color: white;
 	padding: 8px;
-	width: 18%;
+	width: 28%;
 }
 
 form.order {
@@ -322,7 +324,7 @@ form.order {
 }
 </style>
 <body>
-	<div class="container">
+	<div id="lessonRead">
 		<div class="lesson-container">
 			<div class="lesson-main">
 				<div class="lessonDetailImgDiv">
@@ -330,34 +332,40 @@ form.order {
 						<img class="lessonImg" src="../../../resources/img/javaclass.jpg">
 					</c:if>
 					<c:if test="${!empty lesson.thumbnail}">
-						<img class="lessonImg"
-							src="/resources/img/lesson/thumb/${lesson.teacherId}${lesson.openAt}/${lesson.thumbnail}">
+						<img class="lessonImg" src="/resources/img/lesson/thumb/${lesson.teacherId}${lesson.openAt}/${lesson.thumbnail}">
 					</c:if>
 				</div>
 				<div class="lesson-detail">
 					<div class="lesson-detail-nav">
-						<a href="#detailDiv">클래스소개</a> <a href="#scheduleDiv">시간표</a> <a
-							href="#curriculumDiv">커리큘럼</a> <a href="#teacherDiv">강사소개</a> <a
-							href="#quickReview">후기</a> <a href="#refundTerm">환불정책</a>
+						<a href="#detailDiv">Description</a>
+						<a href="#scheduleDiv">Schedule</a>
+						<a href="#curriculumDiv">Content</a> 
+						<a href="#teacherDiv">Instructor</a> 
+						<a href="#quickReview">Review</a> 
+						<a href="#refundTerm">Refund Policy</a>
 					</div>
 
 					<div class="detailDiv" id="detailDiv">
-						<div class="detailReadTitle paddingTitle">이런 걸 배울 거예요.</div>
-						<textarea class="form-control" id='content' name='content'
-							readonly="readonly"><c:out value="${detail.detail }" /></textarea>
+						<div class="detailReadTitle paddingTitle">What you'll learn</div>
+						<textarea class="form-control" id='content' name='content' readonly="readonly">
+							<c:out value="${detail.detail }" />
+						</textarea>
 
-						<br> <br> <span class="detailReadTitleBlue"> <c:out
-								value="${lesson.levelName}" />
-						</span> <span class="detailReadTitle"> <c:if
-								test="${lesson.levelName != '누구나'}">자들을</c:if> <c:if
-								test="${lesson.levelName eq '누구나'}">를</c:if> 위한 <br>
-						</span> <span class="detailReadTitleBlue"> <c:out
-								value="${lesson.categoryName}" />클래스
-						</span> <span class="detailReadTitle">입니다.</span> <br>
+						<br> <br> 
+						<span class="detailReadTitle">This is </span> 
+						<span class="detailReadTitleBlue"> 
+							<c:out value="${lesson.categoryName}" />
+						</span> 
+						<span class="detailReadTitle"> course for </span> 
+						<span class="detailReadTitleBlue"> 
+							<c:out value="${lesson.levelName}" />
+						</span> 
+						<span class="detailReadTitle"> level.</span> 
+						<br>
 					</div>
 
 					<div class="scheduleDiv" id="scheduleDiv">
-						<div class="detailReadTitle paddingTitle">강의 시간표</div>
+						<div class="detailReadTitle paddingTitle">Schedule</div>
 						<c:forEach items="${schedule }" var="schedule">
 							<span class="lessonDate"><c:out
 									value="${schedule.lessonDate }" /></span>
@@ -369,10 +377,11 @@ form.order {
 					</div>
 
 					<div class="curriculumDiv" id="curriculumDiv">
-						<div class="detailReadTitle paddingTitle">커리큘럼</div>
+						<div class="detailReadTitle paddingTitle">Content</div>
 						<div class="lessonText">
-							클래스를 신청하신 분들이 배우고 있는 커리큘럼입니다. <br>콘텐츠는 배우기 쉽게 영상, 수업노트,
-							첨부파일로 구성되어있습니다.
+							<!-- 클래스를 신청하신 분들이 배우고 있는 커리큘럼입니다. <br>콘텐츠는 배우기 쉽게 영상, 수업노트,
+							첨부파일로 구성되어있습니다. -->
+							The course includes video, class note, downloadable resources.
 						</div>
 						<c:forEach items='${curriculum}' var='list'>
 							<div class="curriculumSubject">
@@ -381,10 +390,8 @@ form.order {
 
 							<c:forEach items='${list.detailList}' var='detail'>
 								<div class="curriculumDetailDiv">
-									<span class="detailNumber"><c:out
-											value="${detail.detailOrder}" /></span> <span
-										class="curriculumDetail"><c:out
-											value="${detail.detail}" /></span>
+									<span class="detailNumber"><c:out value="${detail.detailOrder}" /></span>
+									<span class="curriculumDetail"><c:out value="${detail.detail}" /></span>
 								</div>
 							</c:forEach>
 							<br>
@@ -392,50 +399,48 @@ form.order {
 					</div>
 
 					<div class="teacherDiv" id="teacherDiv">
-						<div class="detailReadTitle paddingTitle">강사 소개</div>
+						<div class="detailReadTitle paddingTitle">Instructor</div>
 						<div class="teacherInfo">
-							<span class="teacherNickname"><c:out
-									value="${teacher.nickname}" /></span> <span> <c:if
-									test="${teacher.snsType eq 'Instagram'}">
-									<img class="snsIcon"
-										src="../../../../resources/img/instagram.png">
-								</c:if> <c:if test="${teacher.snsType eq 'Facebook'}">
-									<img class="snsIcon"
-										src="../../../../resources/img/facebook.png">
-								</c:if> <c:if test="${teacher.snsType eq 'Youtube'}">
-									<img class="snsIcon"
-										src="../../../../resources/img/youtube.png">
+							<span class="teacherNickname"><c:out value="${teacher.nickname}" /></span> 
+							<span> 
+								<c:if test="${teacher.snsType eq 'Instagram'}">
+									<img class="snsIcon" src="../../../../resources/img/instagram.png">
+								</c:if> 
+								<c:if test="${teacher.snsType eq 'Facebook'}">
+									<img class="snsIcon" src="../../../../resources/img/facebook.png">
+								</c:if> 
+								<c:if test="${teacher.snsType eq 'Youtube'}">
+									<img class="snsIcon" src="../../../../resources/img/youtube.png">
 								</c:if>
-							</span> <span class="snsId"><c:out value="${teacher.snsId}" /></span>
+							</span> 
+							<span class="snsId"><c:out value="${teacher.snsId}" /></span>
 						</div>
 						<div>
-							<pre>
-								<c:out value="${teacher.profile}" />
-							</pre>
+							<pre><c:out value="${teacher.profile}" /></pre>
 						</div>
 					</div>
 
 
-					<div class="detailReadTitle paddingTitle" id="quickReview">한줄평</div>
-					<input type='hidden' name='rate' id="rate"> <input
-						type='hidden' name='lessonId' id="lessonId"
-						value='<c:out value="${lesson.id}" />'>
+					<div class="detailReadTitle paddingTitle" id="quickReview">Comment</div>
+					<input type='hidden' name='rate' id="rate"> 
+					<input type='hidden' name='lessonId' id="lessonId" value='<c:out value="${lesson.id}" />'>
 					<p id="lesson_star_rate_quickReivew">
-						<a href="#" id="star1">★</a> <a href="#" id="star2">★</a> <a
-							href="#" id="star3">★</a> <a href="#" id="star4">★</a> <a
-							href="#" id="star5">★</a>
+						<a href="#" id="star1">★</a>
+						<a href="#" id="star2">★</a> 
+						<a href="#" id="star3">★</a> 
+						<a href="#" id="star4">★</a> 
+						<a href="#" id="star5">★</a>
 					</p>
-					<input type="text" class="quickReviewText" name="quickReviewText"
-						id="quickReviewText" placeholder="+ 별점과 한줄평을 입력해주세요">
+					<input type="text" class="quickReviewText" name="quickReviewText" id="quickReviewText" placeholder="Write a quick review and rate!">
 					<button id="submitQuickReview">▶</button>
 					<br> <br>
 
 					<div class="shortReview" id="shortReview"></div>
 
 					<div id="refundTerm">
-						<div class="detailReadTitle paddingTitle">환불정책</div>
+						<div class="detailReadTitle paddingTitle">Refund Policy</div>
 						<div class="refundText">
-							환불은 1주일 전까지 해드립니다. <br> 수강 후에는 수업1회당 20% 차감 환불.
+							100% refund if refund requested before course start. <br> 10% deduction per class after course start.
 						</div>
 					</div>
 				</div>
@@ -455,41 +460,28 @@ form.order {
 						<c:out value="${lesson.title}" />
 					</div>
 
-					<fmt:formatNumber type="number" var="originPrice"
-						maxFractionDigits="3" value="${merchandise.originPrice}" />
+					<fmt:formatNumber type="number" var="originPrice" maxFractionDigits="3" value="${merchandise.originPrice}" />
 					<div class="priceDiv">
-						<del>
-							<c:out value="${originPrice }" />
-						</del>
-						원 <span class="redText"> <fmt:parseNumber
-								var="discountRate" integerOnly="true"
-								value="${merchandise.discountRate }" /> <c:out
-								value="${discountRate}" />%
+						<del style="font-size:14px; color:#a2a2a2; font-weight: 100;">CA$<c:out value="${originPrice }" /></del>
+						<span class="redText"> 
+							<fmt:parseNumber var="discountRate" integerOnly="true" value="${merchandise.discountRate }" /> 
+							<c:out value="${discountRate}" />%
 						</span>
-						<div class="afterPrice">
-							<fmt:formatNumber type="number" var="salePrice"
-								maxFractionDigits="3" value="${merchandise.salePrice}" />
-							<c:out value="${salePrice }" />
-							원
-						</div>
+						<span class="afterPrice">
+							<fmt:formatNumber type="number" var="salePrice" maxFractionDigits="3" value="${merchandise.salePrice}" />
+							CA$<c:out value="${salePrice }" />
+						</span>
 					</div>
 
-					<form class="order" name="orderform" method="get"
-						action="/order/orderForm">
-
-						<input type="hidden" id="id" name="id"
-							value='<c:out value="${lesson.id}"/>'> <input
-							type="hidden" id="name" name="name"
-							value='<c:out value="${merchandise.name }"/>'> <input
-							type="hidden" id="originPrice" name="originPrice"
-							value='<c:out value="${merchandise.originPrice }"/>'> <input
-							type="hidden" id="userId" name="userId" value="${principal.id }">
-						<input type='hidden' id='cartId' name='cartId'
-							value="${lesson.id }">
-
-						<button type="submit" class="buy">구매하기</button>
+					<form class="order" name="orderform" method="get" action="/order/orderForm">
+						<input type="hidden" id="id" name="id" value='<c:out value="${lesson.id}"/>'> 
+						<input type="hidden" id="name" name="name" value='<c:out value="${merchandise.name }"/>'> 
+						<input type="hidden" id="originPrice" name="originPrice" value='<c:out value="${merchandise.originPrice }"/>'> 
+						<input type="hidden" id="userId" name="userId" value="${principal.id }">
+						<input type='hidden' id='cartId' name='cartId' value="${lesson.id }">
+						<button type="submit" class="buy">Buy now</button>
 					</form>
-					<button class="addCart">담기</button>
+					<button class="addCart">Add to cart</button>
 
 				</div>
 			</div>

@@ -17,7 +17,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
 body * {
-	font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 #alzLogo {

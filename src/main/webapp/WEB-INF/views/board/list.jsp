@@ -7,72 +7,77 @@
 <style>
 .container {
     width: 100%;
-    display: flex;
     padding-top: 200px;
     margin: 0 auto;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 150px;
 }
-.boardNameDiv {
-    background: beige;
-    writing-mode: vertical-lr;
-    text-align: center;
-    inline-size: 400px;
-    font-size: 70px;
-    padding: 5%;
-    letter-spacing: 10px;
+
+h1 {
+    font-size: 25px;
     font-weight: 500;
 }
+.boardHeaderTitle {
+	width: 1050px;
+    margin: 0 auto;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 20px;
+	border-bottom: solid 2px;
+    border-color: #A2a2a2;
+}
+
 .table-container {
-    width: 60%;
-    padding-left: 30px;
+	width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
 }
 
 .content-table {
-  border-collapse: collapse;
-  font-size: 0.9em;
-  min-width: 400px;
-  width: 700px;
-  overflow: hidden;
+	border-collapse: collapse;
+	font-size: 0.9em;
+	min-width: 400px;
+	overflow: hidden;
+	margin: auto;
+	width: 90%;
 }
 
 .content-table thead tr {
-  background-color: #335492;
-  color: #ffffff;
-  text-align: center;
+	background-color: #335492;
+	color: #ffffff;
+	text-align: center;
 }
 
 .content-table th {
-padding: 13px 15px
+	padding: 13px 15px
 }
 .content-table td {
-  padding: 13px 15px;
+	padding: 13px 15px;
 }
 
 .content-table td a {
-  text-decoration: none;
-  color: #335492;
+	text-decoration: none;
+	color: #335492;
 }
 
 .content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
 }
 
 .content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+	background-color: #f3f3f3;
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #335492;
+	border-bottom: 2px solid #335492;
 }
 
 .content-table tbody tr.active-row {
-  font-weight: bold;
-  color: #335492;
+	font-weight: bold;
+	color: #335492;
 }
 
 .page-footer{
-	
 	right: 0%;
 	bottom: 0%;
 	margin-top: 20px;
@@ -98,6 +103,8 @@ padding: 13px 15px
 .searchDiv {
 	padding: 10px;
 	padding-bottom: 20px;
+	margin: auto;
+	width: 90%;
 }
 .search {
     width: 150px;
@@ -126,29 +133,28 @@ padding: 13px 15px
 <body>
 
 <div class="container">
-	<div class="boardNameDiv">
-	   <h1 class="page-header">${boardName}</h1>
+   	<div class="boardHeaderTitle">
+		<h1>${boardName}</h1>
 	</div>
-   
 	<div class="table-container">
 	
 		<!-- 검색 -->
 		<div class="searchDiv">
 			<form id='actionForm' action="/board/list" method='get'>
 				<select class="form-control search" id='type' name='type'>
-					<option value="T" <c:out value="${pageMaker.cri.type == 'T'? 'selected':'' }"/>>제목</option>
-					<option value="C" <c:out value="${pageMaker.cri.type == 'C'? 'selected':'' }"/>>내용</option>
-					<option value="W" <c:out value="${pageMaker.cri.type == 'W'? 'selected':'' }"/>>작성자</option>
-					<option value="TC" <c:out value="${pageMaker.cri.type == 'TC'? 'selected':'' }"/>>제목 or 내용</option>
-					<option value="TW" <c:out value="${pageMaker.cri.type == 'TW'? ' selected':'' }"/>>제목 or 작성자</option>
-					<option value="TWC" <c:out value="${pageMaker.cri.type == 'TWC'? 'selected':'' }"/>>제목 or 내용 or 작성자</option>
+					<option value="T" <c:out value="${pageMaker.cri.type == 'T'? 'selected':'' }"/>>Title</option>
+					<option value="C" <c:out value="${pageMaker.cri.type == 'C'? 'selected':'' }"/>>Content</option>
+					<option value="W" <c:out value="${pageMaker.cri.type == 'W'? 'selected':'' }"/>>Name</option>
+					<option value="TC" <c:out value="${pageMaker.cri.type == 'TC'? 'selected':'' }"/>>Title or Content</option>
+					<option value="TW" <c:out value="${pageMaker.cri.type == 'TW'? ' selected':'' }"/>>Title or Name</option>
+					<option value="TWC" <c:out value="${pageMaker.cri.type == 'TWC'? 'selected':'' }"/>>Title or Content or Name</option>
 				</select>
 				<input class="form-control searchInput" type='text' id='keyword' name='keyword' value='<c:out value="${pageMaker.cri.keyword }"/>' />
 				<input type='hidden' id='pageNum' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum }"/>' />
 				<input type='hidden' id='amount' name='amount' value='<c:out value="${pageMaker.cri.amount }"/>' />
 				<input type='hidden' id='typeId' name='typeId' value='<c:out value="${pageMaker.cri.typeId }"/>' />
-				<button class='writeBtn' id='searchBtn' >검색</button>
-				<button class='writeBtn' id='writeBtn' type="button">글쓰기</button>
+				<button class='writeBtn' id='searchBtn' >Search</button>
+				<button class='writeBtn' id='writeBtn' type="button">Write</button>
 			</form>
 		</div>
 		
@@ -156,11 +162,11 @@ padding: 13px 15px
 		<table class="content-table" id="table" >
 			<thead id="table-header">
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
+					<th>No</th>
+					<th>Title</th>
+					<th>Name</th>
+					<th>Date</th>
+					<th>View</th>
 				</tr>
 			</thead>
 			<tbody>

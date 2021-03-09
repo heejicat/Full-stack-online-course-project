@@ -31,6 +31,8 @@ public interface LessonService {
 	
 	LessonDTO readByLessonId(Long id); 
 	
+	CategoryDTO getCategoryName(CategoryDTO category);  // 카테고리 이름
+	
 	LessonDTO basicByLessonId(Long id); // 기본정보만
 	List<CurriculumSubjectDTO> curriculumByLessonId(Long lessonId); // 새로만든 클래스
 	List<TimeTableDTO> timeTableByLessonId(Long lessonId); // 스케줄 불러오기(상세 페이지에서 사용)

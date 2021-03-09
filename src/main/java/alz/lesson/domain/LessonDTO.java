@@ -45,8 +45,8 @@ public class LessonDTO {
 	private String detail;
 	private String thumbnail;
 	
-	private Long originPrice;
-	private Long salePrice;
+	private Double originPrice;
+	private Double salePrice;
 	private Double discountRate;
 	
 	private Long Rate;

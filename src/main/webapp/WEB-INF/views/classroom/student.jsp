@@ -19,7 +19,7 @@
 	crossorigin="anonymous"></script>
 <style>
 body * {
-	font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 #classroom {

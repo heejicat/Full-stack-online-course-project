@@ -53,6 +53,7 @@ public interface LessonMapper {
 	
 	List<CategoryDTO> findMainCategory();
 	List<CategoryDTO> findSubCategory();
+	CategoryDTO findCategoryName(CategoryDTO category);
 	List<CategoryDTO> findLessonLevel();
 	
 	LessonDetailDTO findLessonDetail(Long lessonId);

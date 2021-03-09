@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import alz.lesson.domain.CategoryDTO;
 import alz.lesson.domain.LessonCriteria;
 import alz.lesson.domain.LessonDTO;
 import alz.lesson.domain.LessonDetailDTO;
@@ -67,6 +68,12 @@ public class LessonPageController {
 			cri.setCategorySub(sub.intValue());
 		}
 		cri.setState(7);
+		
+		CategoryDTO category = new CategoryDTO();
+		category.setMain(main);
+		category.setSub(sub);
+		
+		model.addAttribute("listName", lessonService.getCategoryName(category));
 		model.addAttribute("list", lessonService.readAll(cri));
 		int total = lessonService.getTotal(cri);
 	  
@@ -262,7 +269,7 @@ public class LessonPageController {
 			Long userId = getLoginUserInfo().getId();
 			success=lessonService.lessonSubmit(lessonId, userId);
 		}
-		System.out.println("제출" + success);
+		System.out.println("Submit" + success);
 		return "redirect:/";
 	}
 }

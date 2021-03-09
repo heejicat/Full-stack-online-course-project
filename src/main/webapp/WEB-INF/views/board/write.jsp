@@ -28,15 +28,63 @@
 
 </head>
 <style>
+header .logo {
+	padding-top: 11px;
+	height: 50px;
+}
+
+header .bottom_line nav>ul {
+	margin-bottom: 0;
+}
+
+header .bottom_line .mypage>ul {
+	margin-bottom: 0;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: 500;
+}
 .container {
-	margin-top: 200px;
-	margin-left: 27%;
-	width: 700px;
-	min-height: 100%;
-	position: relative;
+	width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 150px;
+}
+.boardNameDiv {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: solid 2px;
+    border-color: #A2a2a2;
 }
 div.form-group {
-	margin-bottom: 50px;
+    font-size: 14px;
+    margin-top: 0;
+}
+.note-editor .note-toolbar>.note-btn-group {
+    margin-top: 0;
+}
+.uploadDiv{
+	top: 5px;
+}
+.form-control{ 
+    margin-top: 20px;
+    display: inline;
+    width: 90%;
+    margin-left: 10px;	
+}
+.write-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.panel {
+    margin-top: 20px;
 }
 #lesson_star_rate a.lessonOn {
    color: red;
@@ -57,12 +105,20 @@ div.form-group {
 #teacher_star_rate a.teacherOn {
    color: red;
 }
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
 
 </style>
 <body>
 	<div class="container">
+		<div class="boardNameDiv">
+		   <h1>${boardName}</h1>
+		</div>
+		
 		<div class="write-container">
-			<h2 id="head">Board Write</h2>
 			<form role="form" id="form" action="/board/write" method="post">
 				<c:if test="${typeId == 4}">
 					<div>
@@ -102,7 +158,6 @@ div.form-group {
 					<label for="title">title:</label> 
 					<input class="form-control" rows="1" name="title"></input> 
 					
-					<label for="content">content:</label>
 					<textarea id="summernote" name="content"></textarea>
 					
 					<label>Writer:</label> 

@@ -151,6 +151,7 @@ public class BoardPageController {
 			model.addAttribute("reviewOpt", boardService.reviewOption(getLoginUserInfo().getId())); break;
 		case 5:
 		}
+		model.addAttribute("boardName", boardService.getBoardName(typeId));
 		model.addAttribute("typeId", typeId);
 	}
 	
