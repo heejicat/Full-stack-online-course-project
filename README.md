@@ -5,11 +5,13 @@ Demonstration start at 5:48 : https://youtu.be/Q-Xp3xFB7Us?t=348
 or you can try on localhost
 
 **Langauge**
+
 Java
 JavaScript ES5
 Node.js
 
 **Framework**
+
 jQuery
 RESTful
 Mybatis
@@ -20,7 +22,9 @@ Summernote API
 WebSocket API
 
 **Database**
+
 Oracle
 
 **Server**
+
 Apache Tomcat9
