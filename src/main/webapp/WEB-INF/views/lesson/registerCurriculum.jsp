@@ -220,18 +220,18 @@ input[name="addSubject"] {
 <body>
 
 	<div class="lessonHeaderDiv">
-		<span class="lessonHeaderLeft">클래스 등록 > 5. 커리큘럼 등록</span>
+		<span class="lessonHeaderLeft">Course Infomation > 5. Content</span>
 		<span class="lessonHeaderRight"><a href="/">HOME</a></span>
 	</div>
 	<div class="container">
 		<div class="titleDiv">
-			<span class="pageTitle">커리큘럼</span>(5/5)
+			<span class="pageTitle">Content</span>(5/5)
 
 		</div>
 	
 		<input type="hidden" name="originalId" value='<c:out value="${param.originalId }"/>' readonly>
 		<br>
-		<div class="lessonText">클래스를 신청하신 분들이 배우고 있는 커리큘럼입니다.<br> 주제와 그에 따른 소주제를 작성해 주세요.</div>
+		<div class="lessonText">Tell us about course content.<br> Topic with following sub-topic.</div>
 		
 		<div class="parentDiv">
 			<c:if test="${empty newCurriculum}" >
@@ -239,8 +239,8 @@ input[name="addSubject"] {
 					<ul>
 						<li class="subjectLi">
 						<br>
-							<label for="subject">주제</label>
-							<input type="text" class="form-control subject" name="subject" value='<c:out value="${list.subject }"/>'> 
+							<label for="subject">Topic</label>
+							<input type="text" class="form-control subject" name="subject" value='<c:out value="${list.subject }"/>' placeholder="Write Topic here"> 
 							 
 							<c:if test="${subjectLoop.index != 0}" >
 								<input type="button" class="deleteSubject" name="delete" value="-">
@@ -251,8 +251,8 @@ input[name="addSubject"] {
 							<c:forEach items='${list.detailList}' var='detail' varStatus="detailLoop">
 								<ul>
 									<li class="detailLi">
-										<label for="detail">소주제</label>
-										<input type="text" class="form-control detail" name="detail" value='<c:out value="${detail.detail }"/>'>
+										<label for="detail">Sub-topic</label>
+										<input type="text" class="form-control detail" name="detail" value='<c:out value="${detail.detail }"/>' placeholder="Write sub-topic here">
 										
 										<c:if test="${subjectLoop.index>0 || detailLoop.index>0}" >	
 											<input type="button" class="deleteDetail" name="delete" value="-">
@@ -269,8 +269,8 @@ input[name="addSubject"] {
 				<c:forEach items='${newCurriculum}' var='list' varStatus="subjectLoop">
 					<ul>
 						<li class="subjectLi">
-							<label for="subject">주제</label>
-							<input type="text" class="form-control subject" name="subject" value='<c:out value="${list.subject }"/>'> 
+							<label for="subject">Topic</label>
+							<input type="text" class="form-control subject" name="subject" value='<c:out value="${list.subject }"/>' placeholder="Write Topic here"> 
 							
 							<c:if test="${subjectLoop.index != 0}" >
 								<input type="button" class="deleteSubject" name="delete" value="-">
@@ -281,8 +281,8 @@ input[name="addSubject"] {
 							<c:forEach items='${list.detailList}' var='detail' varStatus="detailLoop">
 								<ul>
 									<li class="detailLi">
-										<label for="detail">소주제</label>
-										<input type="text" class="form-control detail" name="detail" value='<c:out value="${detail.detail }"/>'>
+										<label for="detail">Sub-topic</label>
+										<input type="text" class="form-control detail" name="detail" value='<c:out value="${detail.detail }"/>' placeholder="Write sub-topic here">
 										
 										<c:if test="${subjectLoop.index>0 || detailLoop.index>0}" >	
 											<input type="button" class="deleteDetail" name="delete" value="-">
@@ -299,15 +299,15 @@ input[name="addSubject"] {
 				<c:if test="${empty originCurriculum}" >
 					<ul>
 						<li class="subjectLi">
-							<label for="subject">주제</label>
-							<input type="text" class="form-control subject" name="subject" > 
+							<label for="subject">Topic</label>
+							<input type="text" class="form-control subject" name="subject"  placeholder="Write Topic here"> 
 							
 							<input type="button" class="addDetail" name="addDetail" value="+" />
 						
 							<ul>
 								<li class="detailLi">
-									<label for="detail">소주제</label>
-									<input type="text" class="form-control detail" name="detail">
+									<label for="detail">Sub-topic</label>
+									<input type="text" class="form-control detail" name="detail" placeholder="Write sub-topic here">
 								</li>
 							</ul>
 						</li>
@@ -315,13 +315,13 @@ input[name="addSubject"] {
 				</c:if>
 			</c:if>
 		</div>
-		<input type="button" name="addSubject" value="주제 추가"/>
+		<input type="button" name="addSubject" value="Add main-topic"/>
 		<br><br><br>
 		<form class="lessonForm" role="form" id="submitForm" action="/lesson/registerSubmit" method="post">
 			<input type="hidden" name="lessonId" value='<c:out value="${param.lessonId }"/>' readonly>
-			<button type="button" name="prev">이전</button>
-			<button type="button" name="save">저장</button>
-			<button type="submit" name="submit">제출</button>
+			<button type="button" name="prev">＜ Back</button>
+			<button type="button" name="save">Save</button>
+			<button type="submit" name="submit">Submit</button>
 		</form>
 		<br> <br>
 	</div>
@@ -378,7 +378,7 @@ input[name="addSubject"] {
 					if (response==='prev') {
 			    		self.location = "/lesson/registerDetail?lessonId="+$lessonId.val();
 			    	} else if(response==='save') {
-			    		alert("저장되었습니다!");
+			    		alert("Successfully saved!");
 			    	}
 				})
 		} 
@@ -412,7 +412,7 @@ input[name="addSubject"] {
 					
 		var subjectLable = document.createElement("lable");
 		subjectLable.setAttribute("for", "subject");
-		subjectLable.innerText = "주제";
+		subjectLable.innerText = "Topic";
 		
 		var subjectInput = document.createElement("input");
 		subjectInput.setAttribute("type", "text");
@@ -452,7 +452,7 @@ input[name="addSubject"] {
 					
 		var detailLable = document.createElement("lable");
 		detailLable.setAttribute("for", "detail");
-		detailLable.innerText = "소주제";
+		detailLable.innerText = "Sub-topic";
 		
 		var detailInput = document.createElement("input");
 		detailInput.setAttribute("type", "text");

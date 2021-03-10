@@ -176,16 +176,16 @@ input[type="button"] {
 </style>
 <body>
 	<div class="lessonHeaderDiv">
-		<span class="lessonHeaderLeft">클래스 등록 > 4. 세부설명 등록</span>
+		<span class="lessonHeaderLeft">Course Infomation > 4. Course detail</span>
 		<span class="lessonHeaderRight"><a href="/">HOME</a></span>
 	</div>
 	<div class="container">
 		<div class="titleDiv">
-			<span class="pageTitle">세부설명</span>
+			<span class="pageTitle">Detail</span>
 		</div>
 		<div class="lessonText">
 			<br>
-			클래스를 통해 어떤 것을 배울 수 있는지<br> 상상해볼 수 있도록 클래스 소개를 채워주세요.
+			Tell us more about course what people can learn.
 		</div>
 		
 		<form class="lessonForm" role="form" action="/lesson/registerDetail" method="post">
@@ -196,7 +196,7 @@ input[type="button"] {
 
 		
 			
-			<textarea class="form-control" id="summernote" placeholder="클래스를 통해 알려주실 것과 완성할 수 있는 것들을 설명해 주세요." name="detail"><c:out value="${detail.detail }" /></textarea>
+			<textarea class="form-control" id="summernote" placeholder="describe what student will learn and final outcome." name="detail"><c:out value="${detail.detail }" /></textarea>
 			
 			<br> <br>
 			
@@ -215,8 +215,8 @@ input[type="button"] {
 				</div>
 			</div>
 			<br> <br>
-			<button type="submit" name="prev">이전</button>
-			<button type="submit" name="next">다음 </button>
+			<button type="submit" name="prev">＜ Back</button>
+			<button type="submit" name="next">Next ＞</button>
 			<br> <br>
 		</form>
 	</div>
@@ -420,12 +420,12 @@ input[type="button"] {
 		
 		function checkExtension(fileName, fileSize) {
 			if(fileSize >= maxSize){
-				alert("파일 사이즈 초과");
+				alert("File size too big");
 				return false;
 			}
 			
 			if(regex.test(fileName)){
-				alert("해당 종류의 파일은 업로드할 수 없습니다.");
+				alert("Wrong file type");
 				return false;
 			}
 			return true;

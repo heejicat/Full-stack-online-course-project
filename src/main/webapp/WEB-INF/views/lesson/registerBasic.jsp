@@ -142,12 +142,12 @@ body {
 </style>
 <body>
 	<div class="lessonHeaderDiv">
-		<span class="lessonHeaderLeft">클래스 등록 > 2. 기본 정보 등록</span>
+		<span class="lessonHeaderLeft">Course Infomation > 2. Basic</span>
 		<span class="lessonHeaderRight"><a href="/">HOME</a></span>
 	</div>
 	<div class="container">
 		<div class="titleDiv">
-			<span class="pageTitle">기본 정보</span>(2/5)
+			<span class="pageTitle">Basic</span>(2/5)
 		</div>
 		<form class="lessonForm" role="form" action="/lesson/registerBasic" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="userId" value='<sec:authentication property="principal.id"/>' readonly>
@@ -158,9 +158,9 @@ body {
 			<input type="hidden" name="id" id="id" value='<c:out value="${lesson.id }"/>' readonly>
 	
 			<c:if test="${!empty oldLessons}">
-				<strong>개설했던 클래스들 </strong>
+				<strong>Previouse Courses </strong>
 				<select name="lessonList" class="lessonList form-control">
-					<option>클래스를 선택해주세요</option>
+					<option>Choose Course</option>
 	
 					<c:forEach var="lessonList" items="${oldLessons}">
 						<option value="${lessonList.id}">${lessonList.title}</option>
@@ -171,14 +171,14 @@ body {
 			<div class="lessonBasic">
 				<br> <br>
 				<div class="lessonText">
-					어떤 클래스인지 알려주세요<br>
-					가르쳐보고 싶은게 있으신가요? 카테고리를 설정해봐요
+					What is the course about?<br>
+					Choose one of the category
 				</div>
 				<div class="lessonCategoryDiv">
-					<label>카테고리 </label>
+					<label>Category </label>
 					<c:if test="${!empty mainCategory}">
 						<select name="categoryMain" id="mainCategoryList" class="mainCategoryList form-control">
-							<option>클래스 대분류를 선택해주세요</option>
+							<option>Main category</option>
 	
 							<c:forEach var="mainCategoryList" items="${mainCategory}">
 								<option value="${mainCategoryList.main}"
@@ -190,7 +190,7 @@ body {
 					<c:if test="${!empty subCategory}">
 						<select name="categorySub" id="subCategoryList"
 							class="subCategoryList form-control">
-							<option>클래스 하위분류를 선택해주세요</option>
+							<option>Sub category</option>
 	
 							<c:forEach var="subCategoryList" items="${subCategory}">
 								<option value="${subCategoryList.sub}"
@@ -202,8 +202,7 @@ body {
 	
 				<br> <br>
 				<div class="lessonText">
-					감성적이면서도 클래스를 잘 표현하는 제목과 이미지를 등록해 주세요.<br>예를 들어, 가죽공예, 어반 스케치,
-					다이어리꾸미기 이런식으로요.
+					Submit titles and pictures describe your class<br>Such as Leather craft, acrylic painting, etc
 				</div>
 				<div class="lessonMainImgDiv">
 					<div class="lessonMainImgLeftDiv">
@@ -214,16 +213,16 @@ body {
 						</c:if>
 					</div>
 					<div class="lessonMainImgRightDiv">
-						<label>클래스 제목</label> 
+						<label>Class title</label> 
 						<input class="form-control lessonTitleInput" name='title' id="title" value='<c:out value="${lesson.title}"/>'> 
 						<br>
-						<small>최대 30자</small>
+						<small>Maximum 60Characters</small>
 					</div>
 				</div>
 	
 				<div>
 					<br>
-					<label>난이도</label> <select name="lessonLevel" id=lessonLevel
+					<label>Level</label> <select name="lessonLevel" id=lessonLevel
 						class="lessonLevel form-control">
 						<c:forEach var="level" items="${levelList}">
 							<option value="${level.id}"
@@ -231,32 +230,32 @@ body {
 						</c:forEach>
 					</select> 
 					<br> <br>
-					<label>클래스 과정</label>
+					<label>Course type</label>
 					<input type="radio" class="lessonType" name="lessonType" id="lessonTypeOneday" value="1"
 						<c:if test="${lesson.lessonType eq 1}" > checked</c:if> /> 
-					<label for="lessonTypeOneday">원데이</label> 
+					<label for="lessonTypeOneday">One day</label> 
 					<input type="radio" class="lessonType" name="lessonType" id="lessonTypeRegular" value="2" 
 						<c:if test="${lesson.lessonType eq 2}" > checked</c:if> />
-					<label for="lessonTypeRegular">정규</label> 
+					<label for="lessonTypeRegular">Regular</label> 
 					<br> <br>
-					<label>클래스 인원</label> 
+					<label>Maximum number of student</label> 
 					<br> 
-					<small>- 최소인원 미달 시 수업 2일전 자동취소/환불 됩니다.<br>- 최소인원은 1명으로 권장합니다.</small> 
+					<small>- If students are less than minimum number, will canceled two days before with full refund.<br>- Recommend minimum number is 1 person.</small> 
 					<br> 
-					최소<input type="text" class="form-control studentAmount" placeholder="최소인원" name="minStudent" value='<c:out value="${lesson.minStudent}"/>'> ~ 
-					최대<input type="text" class="form-control studentAmount" placeholder="최대인원" name="maxStudent" value='<c:out value="${lesson.maxStudent}"/>'> 
+					Minimum<input type="text" class="form-control studentAmount" placeholder="최소인원" name="minStudent" value='<c:out value="${lesson.minStudent}"/>'> ~ 
+					Maximum<input type="text" class="form-control studentAmount" placeholder="최대인원" name="maxStudent" value='<c:out value="${lesson.maxStudent}"/>'> 
 					<br> <br>
-					<label>스케줄 선택</label> 
+					<label>Schedule</label> 
 					<br>
-					<small>클래스 시작일과 종료일을 입력해주세요.</small>
+					<small>Choose start and end day of course.</small>
 					<br>
 					<input type="date" class="form-control dateInput" id="openAt" name="openAt" value='<c:out value="${lesson.openAt}"/>'> ~ 
 					<input type="date" class="form-control dateInput" id="closeAt" name="closeAt" value='<c:out value="${lesson.closeAt}"/>'>
 				</div>
 	
 				<br> <br> <br>
-				<button type="submit" name="prev">이전</button>
-				<button type="submit" name="next">다음</button>
+				<button type="submit" name="prev">＜ Back</button>
+				<button type="submit" name="next">Next ＞</button>
 				<br> <br>
 			</div>
 		</form>

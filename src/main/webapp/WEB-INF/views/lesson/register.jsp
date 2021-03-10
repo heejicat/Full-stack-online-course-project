@@ -104,29 +104,29 @@ body {
 </style>
 <body>
 	<nav class="lessonHeaderDiv">
-		<span class="lessonHeaderLeft">클래스 등록 > 1. 강사등록 </span>
+		<span class="lessonHeaderLeft">Course Infomation > 1. Instructor </span>
 		<span class="lessonHeaderRight"><a href="/">HOME</a></span>
 	</nav>
 	<div class="container">
 
 		<div class="titleDiv">
-			<span class="pageTitle">강사소개</span>(1/5)
+			<span class="pageTitle">Tell us about you</span>(1/5)
 		</div>
 		<form class="lessonForm" role="form" action="/lesson/registerTeacher" method="post">
 			<input type="hidden" name="originalId" value='<c:out value="${param.originalId }"/>' readonly> 
 			<input type="hidden" name="userId" value='<sec:authentication property="principal.id"/>' readonly>
 			<input type="hidden" name="id" value='<c:out value="${teacher.id }"/>' readonly>
 				
-			<div class="lessonText">본인을 소개하고<br>활동중인 SNS 채널을 알려주세요</div>
+			<div class="lessonText">Introduce yourself<br>and social account if you have</div>
 			
 
 			<div class="lessonTeacherDiv">
-				<label>닉네임</label> 
+				<label>Name</label> 
 				<input class="form-control" id='nickname' name='nickname' value='<c:out value="${teacher.nickname }"/>'> 
 				<br>
-				<small>(최대 15자)</small> 
+				<small>(Max 30characters)</small> 
 				<br> <br>
-				<label>활동적인 SNS 채널</label>
+				<label>SNS</label>
 				<br> 
 				<select class="form-control" name="snsType" id="snsType">
 					<option value="Instagram" <c:if test="${teacher.snsType eq 'Instagram'}"> selected="selected" </c:if>>Instagram</option>
@@ -134,22 +134,22 @@ body {
 					<option value="Facebook" <c:if test="${teacher.snsType eq 'Facebook'}"> selected="selected" </c:if>>Facebook</option>
 				</select> 
 				<br> 
-				<input type="text" class="form-control" placeholder="채널 아이디를 입력해주세요 (@제외)" name="snsId" value='<c:out value="${teacher.snsId }"/>'> 
+				<input type="text" class="form-control" placeholder="Account name (Except @)" name="snsId" value='<c:out value="${teacher.snsId }"/>'> 
 				<br> 
-				<input type="text" class="form-control" placeholder="URL주소를 입력해주세요." name="snsUrl" value='<c:out value="${teacher.snsUrl }"/>'>
+				<input type="text" class="form-control" placeholder="Address" name="snsUrl" value='<c:out value="${teacher.snsUrl }"/>'>
 
 				<br>
 				<br> 
-				<label>강사 소개</label>
+				<label>Your story</label>
 				<br> 
-				<textarea class="form-control teacherTextarea" placeholder="강사님이 어떤 분인지 소개해주세요" name="profile"><c:out value="${teacher.profile }" /></textarea>
+				<textarea class="form-control teacherTextarea" placeholder="Introduce yourself" name="profile"><c:out value="${teacher.profile }" /></textarea>
 			</div>
 
 
 			<br>
 			<br>
 			<br>
-			<button type="submit">다음</button>
+			<button type="submit">Next ＞</button>
 			<br>
 			<br>
 		</form>

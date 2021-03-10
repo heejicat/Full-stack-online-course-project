@@ -165,12 +165,12 @@ input[name="deleteLesson"] {
 </style>
 <body>
 	<div class="lessonHeaderDiv">
-		<span class="lessonHeaderLeft">클래스 등록 > 3. 스케줄 등록</span>
+		<span class="lessonHeaderLeft">Course Infomation > 3. Schedule</span>
 		<span class="lessonHeaderRight"><a href="/">HOME</a></span>
 	</div>
 	<div class="container">
 		<div class="titleDiv">
-			<span class="pageTitle">스케줄</span>(3/5)
+			<span class="pageTitle">Schedule</span>(3/5)
 		</div>
 		<form class="lessonForm" role="form" action="/lesson/registerDetail" method="get">
 			<input type="hidden" name="lessonId" value='<c:out value="${param.lessonId }"/>' readonly> 
@@ -186,16 +186,16 @@ input[name="deleteLesson"] {
 			<input type="date" class="form-control dateInput" id="openAt" name="openAt" value='<c:out value="${schedule.openAt }"/>'> ~ 
 			<input type="date" class="form-control dateInput" id="closeAt" name="closeAt" value='<c:out value="${schedule.closeAt }"/>'>
 			<br> <br> --%>
-			<div class="lessonText">추가 버튼을 눌러<br> 세부 날짜와 시간을 입력해주세요.</div>
+			<div class="lessonText">Pick dates and times through add button.</div>
 			<div>
 				<c:if test="${empty schedule.timeTable}">
 					<div id="timesetDiv">
-						<label for="lessonDate">날짜 </label> 
+						<label for="lessonDate">Date </label> 
 						<input type="date" class="form-control lessonDate" name="lessonDate"> 
 						
-						<label for="startAt">시작시간 </label> 
+						<label for="startAt">Start </label> 
 						<input type="time" class="form-control startAt" name="startAt"> ~
-						<label for="endAt">종료시간 </label> 
+						<label for="endAt">End </label> 
 						<input type="time" class="form-control endAt" name="endAt">
 					</div>
 				</c:if>
@@ -219,8 +219,8 @@ input[name="deleteLesson"] {
          <br>
          <input type="button" id="addLesson" name="addLesson" value="시간 추가" />
          <br> <br> <br>
-         <button type="submit" name="prev">＜ 이전</button>
-         <button type="submit" name="next">다음 ＞</button>
+         <button type="submit" name="prev">＜ Back</button>
+         <button type="submit" name="next">Next ＞</button>
          <br> <br> <br>
       </form>
    </div>
