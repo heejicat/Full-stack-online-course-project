@@ -7,23 +7,35 @@ or you can try on localhost
 **Langauge**
 
 Java
+
 JavaScript ES5
+
 Node.js
+
 
 **Framework**
 
 jQuery
+
 RESTful
+
 Mybatis
+
 Spring Security
+
 Payment API(I’mport;)
+
 Social Login API (Google, Naver, KaKao)
+
 Summernote API
+
 WebSocket API
+
 
 **Database**
 
 Oracle
+
 
 **Server**
 
