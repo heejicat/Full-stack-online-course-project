@@ -2,7 +2,7 @@
 
 Presentation video in Korean: https://www.youtube.com/playlist?list=PLW2UjW795-f5wpzqtucWi_qRA8zK_Z14R
 Demonstration start at 5:48 in Korean : https://youtu.be/Q-Xp3xFB7Us?t=348  
-or you can try on localhost
+or you can try on localhost with eclipse
 <br />
 <br />
 - **Langauge**
