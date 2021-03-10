@@ -1,7 +1,7 @@
 # Full-stack Online course web project
 
-Presentation video in Korean: https://youtu.be/Q-Xp3xFB7Us
-Demonstration start at 5:48 in Korean : https://youtu.be/Q-Xp3xFB7Us?t=348  
+Presentation video in Korean: https://youtu.be/Q-Xp3xFB7Us  
+Demonstration start at 5:48 in Korean : https://youtu.be/Q-Xp3xFB7Us?t=348
 or you can try on localhost with lombok
 <br />
 <br />
