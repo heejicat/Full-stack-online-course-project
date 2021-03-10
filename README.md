@@ -4,7 +4,7 @@ Presentation video in Korean: https://www.youtube.com/playlist?list=PLW2UjW795-f
 Demonstration start at 5:48 : https://youtu.be/Q-Xp3xFB7Us?t=348
 or you can try on localhost
 
-- Langauge
+- **Langauge**
 
 Java
 
@@ -13,7 +13,7 @@ JavaScript ES5
 Node.js
 
 
-**Framework**
+- **Framework**
 
 jQuery
 
@@ -32,11 +32,11 @@ Summernote API
 WebSocket API
 
 
-**Database**
+- **Database**
 
 Oracle
 
 
-**Server**
+- **Server**
 
 Apache Tomcat9
