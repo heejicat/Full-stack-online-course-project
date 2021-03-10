@@ -2,7 +2,8 @@
 
 Presentation in Korean: https://youtu.be/Q-Xp3xFB7Us  
 Demonstration start at 5:48 in Korean : https://youtu.be/Q-Xp3xFB7Us?t=348  
-or you can try on localhost with lombok
+or you can try on localhost with lombok  
+currently trying to put it on heroku server
 <br />
 <br />
 - **Langauge**
