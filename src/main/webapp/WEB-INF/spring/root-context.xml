@@ -54,7 +54,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
 		<property name="username" value="c##alz_ex"></property>
-		<property name="password" value="alz_ex"></property>
+		<property name="password" value="letmeknowdb"></property>
 	</bean>
 
 	<!-- HikariCP configuration -->
