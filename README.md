@@ -2,7 +2,7 @@
 
 Presentation in Korean: https://youtu.be/Q-Xp3xFB7Us  
 Demonstration start at 5:48 in Korean : https://youtu.be/Q-Xp3xFB7Us?t=348  
-or you can try on localhost with lombok  
+or you can pull and try on your localhost:8080 with lombok on eclipse
 <br />
 <br />
 - **Langauge**
